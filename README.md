@@ -1,14 +1,17 @@
-# MR1002
-### 说明
-
-分支2A是题目a，2B是题目b，以此类推，每个字母对应准确的题目序号
-
+# MR1002 - 分支2C
 ### 项目要求
 
-(a) Cross-Validation: https://qffc.uic.edu.cn/home/content/index/pid/276/cid/6530.html Please try these three approaches holdout, K-fold and leave-p-out with the data file 2.1- Exercise.csv. Submit ‘Exercise-handout.py’, ‘Exercise-k-fold.py’, and ‘Exercise-leave-p-out.py’ 
+Naïve Bayes: https://qffc.uic.edu.cn/home/content/index/pid/276/cid/6557.html Here the dataset ‘basketball.csv’ used is for basketball games and weather conditions  where the target is if a basketball game is played in the given conditions or not, the  dataset is very small, just containing 14 rows and 5 columns. 
 
-(b) Linear regression: https://qffc.uic.edu.cn/home/content/index/pid/276/cid/6541.html Please modify linear_regression_lobf.py with the data file 2.2-Exercise.csv. For this task,  take the High column values as variables and Target column for prediction. Submit ‘Exercise-linear_regression_lobf.py’ 
+Submit ‘Exercise-NB.py’
 
-(c) Naïve Bayes: https://qffc.uic.edu.cn/home/content/index/pid/276/cid/6557.html Here the dataset ‘basketball.csv’ used is for basketball games and weather conditions  where the target is if a basketball game is played in the given conditions or not, the  dataset is very small, just containing 14 rows and 5 columns. Submit ‘Exercise-NB.py’ 
+------
 
-(d) Logistic regression: https://qffc.uic.edu.cn/home/content/index/pid/276/cid/6556.html Use breast cancer from sklearn using following code: from sklearn.datasets import  load_breast_cancer. Submit ‘Exercise-Logistic-Regression.py
+朴素贝叶斯：https://qffc.uic.edu.cn/home/content/index/pid/276/cid/6557.html 这里使用的数据集“basketball.csv”用于篮球比赛和天气条件，目标是篮球比赛是否在给定条件下进行，数据集非常小，仅包含 14 行和 5 列。
+
+提交 'Exercise-NB.py'
+
+## 代码结果
+
+Test set actual values: [1 1 0]
+Test set predicted values: [1 0 1]
