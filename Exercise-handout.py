@@ -1,39 +1,31 @@
-# An example of the Holdout Cross-Validation split
+# An example of the Holdout Cross-Validation split using the provided dataset
 
-import pandas
-from sklearn import datasets
+import pandas as pd
 from sklearn.model_selection import train_test_split
 
-# The percentage (as a decimal) of our data that will be training data
-TRAIN_SPLIT = 0.7
+# 读取CSV数据
+data = pd.read_csv('2.1-Exercise.csv')
 
-# The diabetes dataset contains the following columns:
-columns = [
-    'age', 'sex', 'bmi', 'map', 'tc', 'ldl', 'hdl', 'tch', 'ltg', 'glu'
-]
+# 准备特征和目标变量
+X = data[['Open', 'High', 'Low', 'Close', 'Volume']].values
+y = data['Target'].values
 
-# Load the diabetes dataset
-dataset = datasets.load_diabetes()
-print(dataset)
-# Create a pandas DataFrame from the diabetes dataset
-dataframe = pandas.DataFrame(dataset.data, columns=columns)
+# 将数据集拆分为训练集和测试集，80%训练，20%测试
+TRAIN_SPLIT = 0.8
+X_train, X_test, y_train, y_test = train_test_split(X, y, train_size=TRAIN_SPLIT, test_size=1-TRAIN_SPLIT, random_state=42)
 
-# Split via the holdout method
-x_train, x_test, y_train, y_test = train_test_split(
-    dataframe, dataset.target, train_size=TRAIN_SPLIT, test_size=1-TRAIN_SPLIT)
-
-print("""\
+print("""
 The holdout method removes a certain portion of the training data and uses it as test data.
 Ideally, the data points removed are random on each run.
 
-The following output shows a set of sample diabetes data split into test and training data:
+The following output shows the dataset split into test and training data:
 """)
 
-# Print our test and training data
-print("Total diabetes data points: {}".format(len(dataframe.index)))
-print("# of training data points: {} (~{}%)".format(len(x_train), TRAIN_SPLIT*100))
-print("# of test data points: {} (~{}%)\n".format(len(x_test), (1-TRAIN_SPLIT)*100))
+# Print total data points, training, and test data points
+print("Total data points: {}".format(len(data)))
+print("# of training data points: {} (~{}%)".format(len(X_train), TRAIN_SPLIT*100))
+print("# of test data points: {} (~{}%)\n".format(len(X_test), (1-TRAIN_SPLIT)*100))
 
-print("If you'd like to see the actual data points, uncomment the print statements at the bottom of this script.")
-# print("Training data:\n{}\n".format(x_train))
-# print("Test data:\n{}".format(x_test))
+# Uncomment the lines below to print actual data
+# print("Training data:\n{}\n".format(X_train))
+# print("Test data:\n{}".format(X_test))
