@@ -21,7 +21,8 @@ y_predictions = regression.predict(x_test)
 
 # Plot the data
 sns.set_style("darkgrid")
-sns.regplot(x_test, y_test, fit_reg=False)
+sns.regplot(x=x_test, y=y_test, fit_reg=False)
+
 plt.plot(x_test, y_predictions, color='black')
 
 # Remove ticks from the plot
